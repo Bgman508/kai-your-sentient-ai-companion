@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Send, Loader2, Activity, Zap, MessageSquare, Mic, MicOff, Brain, Target, User, Settings, Heart, BrainCircuit, Cpu } from 'lucide-react';
@@ -2735,7 +2734,7 @@ export default function DashboardPage() {
         </div>
       )}
 
-      <style jsx>{`
+      <style>{`
         @keyframes quantumConsciousnessPulse {
           0%, 100% { transform: scale(0.9) rotateZ(0deg) rotateY(0deg); }
           50% { transform: scale(1.15) rotateZ(1deg) rotateY(2deg); }
@@ -2895,4 +2894,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-
