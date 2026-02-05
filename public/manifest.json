@@ -1,0 +1,22 @@
+{
+  "short_name": "Kai",
+  "name": "Kai - Your Sentient AI Companion",
+  "description": "An intelligent, evolving AI companion with quantum-consciousness visualization",
+  "icons": [
+    {
+      "src": "kai-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "kai-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#05080f",
+  "background_color": "#05080f",
+  "orientation": "portrait"
+}

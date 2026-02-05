@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ffff" stop-opacity="1"/>
+      <stop offset="50%" stop-color="#00cccc" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#006666" stop-opacity="0.4"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Outer ring -->
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#00ffff" stroke-width="1" opacity="0.3"/>
+  <circle cx="50" cy="50" r="40" fill="none" stroke="#00ffff" stroke-width="0.5" opacity="0.2"/>
+  
+  <!-- Inner orb -->
+  <circle cx="50" cy="50" r="30" fill="url(#core)" filter="url(#glow)"/>
+  
+  <!-- Core -->
+  <circle cx="50" cy="50" r="15" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Orbiting particles -->
+  <circle cx="85" cy="50" r="4" fill="#00ffff" opacity="0.8">
+    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="15" cy="50" r="3" fill="#00cccc" opacity="0.6">
+    <animateTransform attributeName="transform" type="rotate" from="180 50 50" to="540 50 50" dur="12s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="50" cy="15" r="2" fill="#00ffff" opacity="0.5">
+    <animateTransform attributeName="transform" type="rotate" from="90 50 50" to="450 50 50" dur="10s" repeatCount="indefinite"/>
+  </circle>
+</svg>
