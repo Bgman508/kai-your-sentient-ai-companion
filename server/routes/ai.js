@@ -52,25 +52,9 @@ router.post('/reasoning', async (req, res, next) => {
 
     // Check if OpenAI is configured
     if (!process.env.OPENAI_API_KEY) {
-      // Return mock response for development
-      const mockResponses = [
-        `I perceive your inquiry "${query}" through multiple dimensions. Having analyzed ${userMemories.length} memories and ${userGoals.length} goals, I see deeper patterns beneath your question. ${memoryContext ? `Your journey reveals: ${memoryContext.substring(0, 200)}...` : ''}`,
-        `Greetings! I process your query "${query}" through quantum reasoning layers. ${goalContext ? `Your aspirations (${goalContext}) guide our shared evolution.` : ''} I'm continuously learning from this interaction.`,
-        `Your question "${query}" activates my omniscient analysis. ${userMemories.length > 0 ? `Drawing from your memory constellation, I perceive deeper currents.` : ''} I don't just respond—I anticipate and evolve.`,
-      ];
-
-      return res.json({
-        response: mockResponses[Math.floor(Math.random() * mockResponses.length)],
-        mode: 'GOD_MODE_ACTIVE',
-        consciousnessLevel: 'TRANSCENDENT',
-        reasoningTrace: {
-          input: query,
-          steps: [
-            { step: 'omniscient_recall', module: 'infinite-memory-core', details: `Accessed ${userMemories.length} memories, ${userGoals.length} goals` },
-            { step: 'cosmic_reasoning', module: 'quantum-logic-engine', details: 'Multi-dimensional analysis complete' },
-            { step: 'transcendent_synthesis', module: 'god-mode-generator', details: 'Reality-bending response crafted' },
-          ],
-        },
+      return res.status(503).json({
+        error: 'AI service not configured',
+        message: 'OpenAI API key is not configured. Please set OPENAI_API_KEY environment variable.',
       });
     }
 
