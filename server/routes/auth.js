@@ -108,7 +108,10 @@ router.get('/me', async (req, res, next) => {
 
     // Verify and decode token
     import jwt from 'jsonwebtoken';
-    const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';
+    const JWT_SECRET = process.env.JWT_SECRET;
+    if (!JWT_SECRET) {
+      throw new AppError('Server configuration error', 500);
+    }
     const decoded = jwt.verify(token, JWT_SECRET);
 
     const user = users.get(decoded.userId);
@@ -145,7 +148,10 @@ router.post('/refresh', async (req, res, next) => {
     }
 
     import jwt from 'jsonwebtoken';
-    const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';
+    const JWT_SECRET = process.env.JWT_SECRET;
+    if (!JWT_SECRET) {
+      throw new AppError('Server configuration error', 500);
+    }
     const decoded = jwt.verify(token, JWT_SECRET);
 
     const user = users.get(decoded.userId);
