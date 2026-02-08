@@ -2,7 +2,7 @@
 
 An intelligent, evolving AI companion with quantum-consciousness visualization, memory management, goal tracking, and transcendent reasoning capabilities.
 
-![Kai Dashboard](https://via.placeholder.com/800x400?text=Kai+Dashboard)
+![Kai Dashboard](./docs/dashboard-screenshot.png)
 
 ## Features
 
