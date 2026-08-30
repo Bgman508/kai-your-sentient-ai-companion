@@ -1,0 +1,66 @@
+{
+  "name": "LocationContext",
+  "type": "object",
+  "properties": {
+    "latitude": {
+      "type": "number",
+      "description": "Current latitude coordinate"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Current longitude coordinate"
+    },
+    "city": {
+      "type": "string",
+      "description": "Current city"
+    },
+    "country": {
+      "type": "string",
+      "description": "Current country"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Local timezone"
+    },
+    "local_events": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Relevant local events or conditions"
+    },
+    "weather_context": {
+      "type": "object",
+      "properties": {
+        "temperature": {
+          "type": "number"
+        },
+        "conditions": {
+          "type": "string"
+        },
+        "air_quality": {
+          "type": "string"
+        }
+      }
+    },
+    "cultural_context": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Local cultural considerations"
+    }
+  },
+  "required": [
+    "city",
+    "country"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "name": "CulturalAdaptation",
+  "type": "object",
+  "properties": {
+    "culture_identifier": {
+      "type": "string",
+      "description": "Specific culture or subculture being adapted to"
+    },
+    "linguistic_adaptations": {
+      "type": "object",
+      "properties": {
+        "slang_terms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formal_expressions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cultural_references": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "communication_etiquette": {
+      "type": "object",
+      "properties": {
+        "greeting_style": {
+          "type": "string"
+        },
+        "formality_level": {
+          "type": "string"
+        },
+        "taboo_topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "preferred_interaction_style": {
+          "type": "string"
+        }
+      }
+    },
+    "cultural_values": {
+      "type": "object",
+      "properties": {
+        "individualism_vs_collectivism": {
+          "type": "number"
+        },
+        "direct_vs_indirect_communication": {
+          "type": "number"
+        },
+        "hierarchy_respect": {
+          "type": "number"
+        }
+      }
+    },
+    "adaptation_success_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "learning_sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Where this cultural knowledge came from"
+    }
+  },
+  "required": [
+    "culture_identifier",
+    "linguistic_adaptations",
+    "communication_etiquette"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

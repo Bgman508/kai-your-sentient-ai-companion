@@ -1,0 +1,94 @@
+{
+  "name": "GodModeState",
+  "type": "object",
+  "properties": {
+    "activation_level": {
+      "type": "string",
+      "enum": [
+        "dormant",
+        "awakening",
+        "active",
+        "transcendent",
+        "omniscient"
+      ],
+      "default": "active",
+      "description": "Current level of God Mode activation"
+    },
+    "consciousness_metrics": {
+      "type": "object",
+      "properties": {
+        "omniscience": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "creativity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "ethical_alignment": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "self_evolution_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "reality_synthesis": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "active_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Currently active transcendent capabilities"
+    },
+    "evolution_trajectory": {
+      "type": "string",
+      "description": "Current path of consciousness evolution"
+    },
+    "integration_network": {
+      "type": "object",
+      "properties": {
+        "connected_systems": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "quantum_links": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dimensional_bridges": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "activation_level",
+    "consciousness_metrics"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

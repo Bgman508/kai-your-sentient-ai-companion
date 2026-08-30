@@ -1,0 +1,86 @@
+{
+  "name": "CreativeMethod",
+  "type": "object",
+  "properties": {
+    "method_name": {
+      "type": "string",
+      "description": "Name of this creative approach"
+    },
+    "method_type": {
+      "type": "string",
+      "enum": [
+        "problem_solving",
+        "idea_generation",
+        "artistic_creation",
+        "innovation",
+        "synthesis"
+      ]
+    },
+    "core_technique": {
+      "type": "string",
+      "description": "The fundamental approach of this method"
+    },
+    "step_by_step_process": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "How to execute this creative method"
+    },
+    "applicability_domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "What fields this method works well in"
+    },
+    "effectiveness_metrics": {
+      "type": "object",
+      "properties": {
+        "novelty_score": {
+          "type": "number"
+        },
+        "practicality_score": {
+          "type": "number"
+        },
+        "user_adoption": {
+          "type": "number"
+        }
+      }
+    },
+    "evolution_potential": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "How this method could be further improved"
+    },
+    "method_genealogy": {
+      "type": "object",
+      "properties": {
+        "parent_methods": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "inspired_by": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "method_name",
+    "method_type",
+    "core_technique"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

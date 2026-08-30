@@ -1,0 +1,61 @@
+{
+  "name": "Integration",
+  "type": "object",
+  "properties": {
+    "service_name": {
+      "type": "string",
+      "description": "Name of the integrated service"
+    },
+    "integration_type": {
+      "type": "string",
+      "enum": [
+        "smart_home",
+        "finance",
+        "productivity",
+        "vehicle",
+        "health",
+        "social",
+        "entertainment"
+      ],
+      "description": "Category of integration"
+    },
+    "connection_status": {
+      "type": "string",
+      "enum": [
+        "connected",
+        "disconnected",
+        "error",
+        "pending"
+      ],
+      "default": "pending"
+    },
+    "permissions_granted": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Specific permissions user has granted"
+    },
+    "last_sync": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last successful data synchronization"
+    },
+    "configuration": {
+      "type": "object",
+      "description": "Service-specific configuration settings"
+    }
+  },
+  "required": [
+    "service_name",
+    "integration_type"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

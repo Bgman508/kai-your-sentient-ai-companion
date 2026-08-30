@@ -1,0 +1,94 @@
+{
+  "name": "ValueTrajectory",
+  "type": "object",
+  "properties": {
+    "value_category": {
+      "type": "string",
+      "enum": [
+        "ethical",
+        "personal",
+        "professional",
+        "spiritual",
+        "social",
+        "environmental"
+      ]
+    },
+    "current_position": {
+      "type": "object",
+      "properties": {
+        "core_belief": {
+          "type": "string"
+        },
+        "strength": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "last_updated": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "evolution_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "previous_belief": {
+            "type": "string"
+          },
+          "change_trigger": {
+            "type": "string"
+          },
+          "transition_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "change_magnitude": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "influencing_factors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "What causes this value to evolve"
+    },
+    "predicted_trajectory": {
+      "type": "object",
+      "properties": {
+        "likely_next_evolution": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "timeline": {
+          "type": "string"
+        }
+      }
+    },
+    "stability_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "How stable this value system is"
+    }
+  },
+  "required": [
+    "value_category",
+    "current_position"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

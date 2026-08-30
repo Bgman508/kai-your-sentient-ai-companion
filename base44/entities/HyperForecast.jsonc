@@ -1,0 +1,72 @@
+{
+  "name": "HyperForecast",
+  "type": "object",
+  "properties": {
+    "forecast_type": {
+      "type": "string",
+      "enum": [
+        "short_term",
+        "medium_term",
+        "long_term",
+        "life_trajectory",
+        "world_state"
+      ]
+    },
+    "time_horizon": {
+      "type": "string",
+      "description": "Time frame for this prediction"
+    },
+    "context_factors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Variables considered in this forecast"
+    },
+    "predictions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scenario": {
+            "type": "string"
+          },
+          "probability": {
+            "type": "number"
+          },
+          "impact_score": {
+            "type": "number"
+          },
+          "preparation_actions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "confidence_level": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "forecast_accuracy": {
+      "type": "number",
+      "description": "How accurate past forecasts of this type have been"
+    }
+  },
+  "required": [
+    "forecast_type",
+    "time_horizon",
+    "predictions"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "name": "WorldEvent",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Event title or headline"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the event"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "technology",
+        "economics",
+        "politics",
+        "health",
+        "environment",
+        "science",
+        "culture"
+      ],
+      "description": "Event category"
+    },
+    "impact_score": {
+      "type": "number",
+      "description": "Global impact rating (0-10)"
+    },
+    "user_relevance": {
+      "type": "number",
+      "description": "Relevance to user (0-10)"
+    },
+    "forecast_implications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Predicted future implications"
+    },
+    "source": {
+      "type": "string",
+      "description": "Information source"
+    }
+  },
+  "required": [
+    "title",
+    "category",
+    "impact_score"
+  ],
+  "rls": {
+    "read": {},
+    "write": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

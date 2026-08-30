@@ -1,0 +1,43 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "dob": {
+      "type": "string",
+      "format": "date",
+      "description": "User's date of birth"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "User's timezone, e.g., America/Los_Angeles"
+    },
+    "preferences": {
+      "type": "object",
+      "properties": {
+        "tone": {
+          "type": "string",
+          "enum": [
+            "casual",
+            "formal",
+            "empathetic"
+          ],
+          "default": "casual"
+        },
+        "autonomy_level": {
+          "type": "string",
+          "enum": [
+            "passive",
+            "suggestive",
+            "proactive"
+          ],
+          "default": "suggestive"
+        }
+      }
+    }
+  },
+  "required": [
+    "dob",
+    "timezone",
+    "preferences"
+  ]
+}

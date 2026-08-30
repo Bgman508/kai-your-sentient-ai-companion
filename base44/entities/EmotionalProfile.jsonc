@@ -1,0 +1,85 @@
+{
+  "name": "EmotionalProfile",
+  "type": "object",
+  "properties": {
+    "detected_emotions": {
+      "type": "object",
+      "properties": {
+        "primary_emotion": {
+          "type": "string"
+        },
+        "secondary_emotions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "intensity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "context_clues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "What indicated this emotional state"
+    },
+    "empathy_strategy": {
+      "type": "object",
+      "properties": {
+        "approach": {
+          "type": "string",
+          "enum": [
+            "supportive",
+            "analytical",
+            "creative",
+            "practical"
+          ]
+        },
+        "tone_adjustment": {
+          "type": "string"
+        },
+        "response_focus": {
+          "type": "string"
+        }
+      }
+    },
+    "interaction_outcome": {
+      "type": "object",
+      "properties": {
+        "user_satisfaction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "emotional_resolution": {
+          "type": "boolean"
+        },
+        "learning_notes": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "detected_emotions",
+    "empathy_strategy"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

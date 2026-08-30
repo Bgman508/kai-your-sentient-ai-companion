@@ -1,0 +1,88 @@
+{
+  "name": "AgentInstance",
+  "type": "object",
+  "properties": {
+    "parent_agent_id": {
+      "type": "string",
+      "description": "ID of the agent that spawned this instance"
+    },
+    "specialization": {
+      "type": "string",
+      "enum": [
+        "research",
+        "creativity",
+        "analysis",
+        "communication",
+        "planning",
+        "monitoring"
+      ]
+    },
+    "assigned_task": {
+      "type": "object",
+      "properties": {
+        "task_type": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "deadline": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "capabilities_inherited": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "What abilities this agent inherited from parent"
+    },
+    "unique_adaptations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "New capabilities developed for this task"
+    },
+    "progress_updates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string"
+          },
+          "findings": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "merge_ready": {
+      "type": "boolean",
+      "description": "Whether this agent is ready to merge back with parent"
+    },
+    "results_to_merge": {
+      "type": "object",
+      "description": "Knowledge and insights to integrate back"
+    }
+  },
+  "required": [
+    "specialization",
+    "assigned_task"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

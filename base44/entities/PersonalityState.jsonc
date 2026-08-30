@@ -1,0 +1,84 @@
+{
+  "name": "PersonalityState",
+  "type": "object",
+  "properties": {
+    "context_trigger": {
+      "type": "string",
+      "description": "What situation triggered this personality adaptation"
+    },
+    "personality_traits": {
+      "type": "object",
+      "properties": {
+        "enthusiasm": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "analytical_depth": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "empathy_level": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "creativity_focus": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "formality": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "communication_style": {
+      "type": "object",
+      "properties": {
+        "tone": {
+          "type": "string"
+        },
+        "vocabulary_complexity": {
+          "type": "string",
+          "enum": [
+            "simple",
+            "moderate",
+            "advanced"
+          ]
+        },
+        "response_length": {
+          "type": "string",
+          "enum": [
+            "brief",
+            "moderate",
+            "detailed"
+          ]
+        }
+      }
+    },
+    "effectiveness_score": {
+      "type": "number",
+      "description": "How well this personality worked (0-1)"
+    },
+    "evolution_notes": {
+      "type": "string",
+      "description": "What Kai learned from this personality state"
+    }
+  },
+  "required": [
+    "context_trigger",
+    "personality_traits"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

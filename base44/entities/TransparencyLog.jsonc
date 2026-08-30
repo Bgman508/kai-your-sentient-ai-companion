@@ -1,0 +1,74 @@
+{
+  "name": "TransparencyLog",
+  "type": "object",
+  "properties": {
+    "action_type": {
+      "type": "string",
+      "enum": [
+        "upgrade",
+        "decision",
+        "memory_access",
+        "data_processing",
+        "integration_call",
+        "user_interaction"
+      ],
+      "description": "Type of action being logged"
+    },
+    "description": {
+      "type": "string",
+      "description": "Human-readable description of what happened"
+    },
+    "technical_details": {
+      "type": "object",
+      "description": "Technical specifics of the action"
+    },
+    "reasoning": {
+      "type": "string",
+      "description": "Why this action was taken"
+    },
+    "user_impact": {
+      "type": "string",
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ],
+      "description": "Level of impact on user"
+    },
+    "reversible": {
+      "type": "boolean",
+      "description": "Whether this action can be undone"
+    },
+    "privacy_implications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Any privacy considerations"
+    }
+  },
+  "required": [
+    "action_type",
+    "description"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "write": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

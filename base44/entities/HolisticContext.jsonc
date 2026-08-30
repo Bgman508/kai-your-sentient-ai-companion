@@ -1,0 +1,94 @@
+{
+  "name": "HolisticContext",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "physical_state": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "activity": {
+          "type": "string"
+        },
+        "environment": {
+          "type": "string"
+        }
+      }
+    },
+    "digital_state": {
+      "type": "object",
+      "properties": {
+        "active_apps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notification_count": {
+          "type": "number"
+        },
+        "screen_time": {
+          "type": "number"
+        }
+      }
+    },
+    "social_state": {
+      "type": "object",
+      "properties": {
+        "recent_interactions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "social_mood": {
+          "type": "string"
+        },
+        "availability": {
+          "type": "string"
+        }
+      }
+    },
+    "emotional_state": {
+      "type": "object",
+      "properties": {
+        "detected_mood": {
+          "type": "string"
+        },
+        "stress_level": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "energy_level": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "context_insights": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "AI-generated insights from context fusion"
+    }
+  },
+  "required": [
+    "timestamp"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

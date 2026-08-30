@@ -1,0 +1,47 @@
+{
+  "name": "UpgradeLog",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "The new version identifier, e.g., v0.2.0"
+    },
+    "module": {
+      "type": "string",
+      "description": "The core module that was upgraded."
+    },
+    "description": {
+      "type": "string",
+      "description": "A human-readable summary of the upgrade."
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "version",
+    "description"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "write": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

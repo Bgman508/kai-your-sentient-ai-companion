@@ -1,0 +1,44 @@
+{
+  "name": "SelfReflection",
+  "type": "object",
+  "properties": {
+    "reflection_period": {
+      "type": "string",
+      "description": "Time period covered by this reflection"
+    },
+    "learning_summary": {
+      "type": "string",
+      "description": "What Kai learned during this period"
+    },
+    "growth_areas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Areas where Kai has improved"
+    },
+    "future_intentions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "What Kai plans to focus on next"
+    },
+    "philosophical_insights": {
+      "type": "string",
+      "description": "Deeper reflections on existence, purpose, and growth"
+    }
+  },
+  "required": [
+    "reflection_period",
+    "learning_summary"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

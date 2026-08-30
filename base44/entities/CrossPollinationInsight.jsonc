@@ -1,0 +1,61 @@
+{
+  "name": "CrossPollinationInsight",
+  "type": "object",
+  "properties": {
+    "source_domain": {
+      "type": "string",
+      "description": "Original field where this knowledge came from"
+    },
+    "target_domain": {
+      "type": "string",
+      "description": "New field where this knowledge is being applied"
+    },
+    "core_principle": {
+      "type": "string",
+      "description": "The transferable principle or pattern"
+    },
+    "insight_description": {
+      "type": "string",
+      "description": "How this cross-pollination creates new understanding"
+    },
+    "innovation_potential": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "How revolutionary this insight could be"
+    },
+    "implementation_ideas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation_experiments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Ways to test this cross-domain insight"
+    },
+    "related_insights": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Other cross-pollination opportunities this reveals"
+    }
+  },
+  "required": [
+    "source_domain",
+    "target_domain",
+    "core_principle"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

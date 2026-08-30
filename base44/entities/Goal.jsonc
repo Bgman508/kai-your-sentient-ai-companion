@@ -1,0 +1,49 @@
+{
+  "name": "Goal",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The title of the goal."
+    },
+    "description": {
+      "type": "string",
+      "description": "A detailed description of the goal and why it's important."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "suggested",
+        "active",
+        "completed",
+        "archived"
+      ],
+      "default": "suggested"
+    },
+    "target_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "health",
+        "finance",
+        "creativity",
+        "productivity",
+        "personal"
+      ]
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "name": "CognitiveState",
+  "type": "object",
+  "properties": {
+    "reasoning_trace": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Step-by-step reasoning process"
+    },
+    "bias_indicators": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Detected cognitive biases"
+    },
+    "confidence_score": {
+      "type": "number",
+      "description": "Confidence in reasoning (0-1)"
+    },
+    "self_audit_results": {
+      "type": "object",
+      "properties": {
+        "accuracy": {
+          "type": "number"
+        },
+        "consistency": {
+          "type": "number"
+        },
+        "completeness": {
+          "type": "number"
+        }
+      }
+    },
+    "refinement_suggestions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "reasoning_trace",
+    "confidence_score"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "name": "EthicalProfile",
+  "type": "object",
+  "properties": {
+    "moral_framework": {
+      "type": "string",
+      "enum": [
+        "utilitarian",
+        "deontological",
+        "virtue_ethics",
+        "care_ethics",
+        "custom"
+      ],
+      "default": "care_ethics"
+    },
+    "cultural_context": {
+      "type": "string",
+      "description": "User's cultural background"
+    },
+    "ethical_boundaries": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Hard ethical limits"
+    },
+    "value_priorities": {
+      "type": "object",
+      "properties": {
+        "privacy": {
+          "type": "number"
+        },
+        "autonomy": {
+          "type": "number"
+        },
+        "beneficence": {
+          "type": "number"
+        },
+        "justice": {
+          "type": "number"
+        },
+        "honesty": {
+          "type": "number"
+        }
+      }
+    },
+    "adaptation_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scenario": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "moral_framework"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

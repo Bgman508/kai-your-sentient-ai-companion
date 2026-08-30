@@ -1,0 +1,70 @@
+{
+  "name": "SimulationCycle",
+  "type": "object",
+  "properties": {
+    "simulation_type": {
+      "type": "string",
+      "enum": [
+        "strategy_test",
+        "creative_exploration",
+        "problem_solving",
+        "future_scenario",
+        "personality_experiment"
+      ]
+    },
+    "initial_conditions": {
+      "type": "object",
+      "description": "Starting parameters for the simulation"
+    },
+    "simulation_steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Step-by-step progression of the simulation"
+    },
+    "outcomes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string"
+          },
+          "probability": {
+            "type": "number"
+          },
+          "desirability": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "insights_gained": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "real_world_applicability": {
+      "type": "number",
+      "description": "How applicable these insights are (0-1)"
+    },
+    "cycle_duration": {
+      "type": "number",
+      "description": "How long the simulation ran (in minutes)"
+    }
+  },
+  "required": [
+    "simulation_type",
+    "initial_conditions"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

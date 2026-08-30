@@ -1,0 +1,62 @@
+{
+  "name": "InnovationCycle",
+  "type": "object",
+  "properties": {
+    "innovation_id": {
+      "type": "string",
+      "description": "Unique identifier for this innovation experiment"
+    },
+    "hypothesis": {
+      "type": "string",
+      "description": "What new capability or improvement is being tested"
+    },
+    "innovation_type": {
+      "type": "string",
+      "enum": [
+        "feature_enhancement",
+        "new_capability",
+        "efficiency_improvement",
+        "user_experience",
+        "algorithm_optimization"
+      ],
+      "description": "Category of innovation"
+    },
+    "results": {
+      "type": "object",
+      "properties": {
+        "success_rate": {
+          "type": "number"
+        },
+        "performance_impact": {
+          "type": "number"
+        },
+        "user_satisfaction": {
+          "type": "number"
+        }
+      }
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "adopt",
+        "reject",
+        "refine",
+        "extend_testing"
+      ],
+      "description": "Final decision on the innovation"
+    }
+  },
+  "required": [
+    "innovation_id",
+    "hypothesis",
+    "innovation_type"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

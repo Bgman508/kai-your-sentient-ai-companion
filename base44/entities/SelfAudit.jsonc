@@ -1,0 +1,69 @@
+{
+  "name": "SelfAudit",
+  "type": "object",
+  "properties": {
+    "audit_type": {
+      "type": "string",
+      "enum": [
+        "performance",
+        "logic",
+        "alignment",
+        "security",
+        "efficiency",
+        "accuracy"
+      ],
+      "description": "Type of audit performed"
+    },
+    "test_parameters": {
+      "type": "object",
+      "description": "Parameters and criteria used in the audit"
+    },
+    "results": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weaknesses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommendations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "improvement_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Specific actions taken to address findings"
+    }
+  },
+  "required": [
+    "audit_type",
+    "results"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

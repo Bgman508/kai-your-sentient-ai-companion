@@ -1,0 +1,78 @@
+{
+  "name": "CommunicationMode",
+  "type": "object",
+  "properties": {
+    "mode_type": {
+      "type": "string",
+      "enum": [
+        "text",
+        "voice",
+        "visual",
+        "ar_vr",
+        "holographic",
+        "gesture",
+        "mixed_reality"
+      ]
+    },
+    "context_suitability": {
+      "type": "object",
+      "properties": {
+        "user_preference": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "task_effectiveness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "environmental_factors": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "mode_parameters": {
+      "type": "object",
+      "description": "Specific settings for this communication mode"
+    },
+    "adaptation_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "situation": {
+            "type": "string"
+          },
+          "effectiveness": {
+            "type": "number"
+          },
+          "user_feedback": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "future_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Planned improvements for this mode"
+    }
+  },
+  "required": [
+    "mode_type",
+    "context_suitability"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

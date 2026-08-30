@@ -1,0 +1,49 @@
+{
+  "name": "Benchmark",
+  "type": "object",
+  "properties": {
+    "benchmark_name": {
+      "type": "string",
+      "description": "Name of the benchmark test"
+    },
+    "benchmark_category": {
+      "type": "string",
+      "enum": [
+        "performance",
+        "accuracy",
+        "creativity",
+        "empathy",
+        "problem_solving",
+        "learning_speed",
+        "memory_efficiency"
+      ],
+      "description": "What aspect is being benchmarked"
+    },
+    "current_score": {
+      "type": "number",
+      "description": "Current performance score"
+    },
+    "improvement_trend": {
+      "type": "string",
+      "enum": [
+        "improving",
+        "stable",
+        "declining"
+      ],
+      "description": "Overall trend in performance"
+    }
+  },
+  "required": [
+    "benchmark_name",
+    "benchmark_category",
+    "current_score"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

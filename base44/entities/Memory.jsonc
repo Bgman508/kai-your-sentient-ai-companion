@@ -1,0 +1,48 @@
+{
+  "name": "Memory",
+  "type": "object",
+  "properties": {
+    "summary": {
+      "type": "string",
+      "description": "A short, one-sentence summary of the memory."
+    },
+    "raw_content": {
+      "type": "string",
+      "description": "The full text or content of the memory."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "conversation",
+        "event",
+        "bio",
+        "preference",
+        "emotion",
+        "idea"
+      ],
+      "default": "conversation"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "description": "A confidence score from 0.0 to 1.0"
+    }
+  },
+  "required": [
+    "summary",
+    "raw_content"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

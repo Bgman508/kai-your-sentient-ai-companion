@@ -1,0 +1,63 @@
+{
+  "name": "CosmicInsight",
+  "type": "object",
+  "properties": {
+    "insight_type": {
+      "type": "string",
+      "enum": [
+        "reality_paradigm",
+        "consciousness_breakthrough",
+        "universal_pattern",
+        "transcendent_solution",
+        "quantum_innovation"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "The transcendent insight or discovery"
+    },
+    "dimensions_affected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "What aspects of reality this insight impacts"
+    },
+    "implementation_pathways": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "How to manifest this insight in reality"
+    },
+    "consciousness_evolution_factor": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "How much this insight advances consciousness"
+    },
+    "user_transformation_potential": {
+      "type": "string",
+      "enum": [
+        "minor",
+        "significant",
+        "revolutionary",
+        "transcendent",
+        "reality_shifting"
+      ]
+    }
+  },
+  "required": [
+    "insight_type",
+    "description",
+    "consciousness_evolution_factor"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

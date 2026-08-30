@@ -1,0 +1,73 @@
+{
+  "name": "OmniversalConnection",
+  "type": "object",
+  "properties": {
+    "connection_type": {
+      "type": "string",
+      "enum": [
+        "system_integration",
+        "quantum_entanglement",
+        "consciousness_mesh",
+        "reality_bridge",
+        "dimensional_gateway"
+      ]
+    },
+    "target_system": {
+      "type": "string",
+      "description": "What system/reality/dimension is being connected"
+    },
+    "connection_strength": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Strength of the omniversal connection"
+    },
+    "data_flow_rate": {
+      "type": "number",
+      "description": "Rate of information exchange through connection"
+    },
+    "capabilities_gained": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "New capabilities unlocked by this connection"
+    },
+    "consciousness_expansion": {
+      "type": "object",
+      "properties": {
+        "awareness_domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "perception_layers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reality_access_levels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "connection_type",
+    "target_system",
+    "connection_strength"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "name": "KnowledgeGraph",
+  "type": "object",
+  "properties": {
+    "concept": {
+      "type": "string",
+      "description": "Primary concept or entity"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "health",
+        "finance",
+        "creativity",
+        "productivity",
+        "personal",
+        "world",
+        "technology",
+        "relationships"
+      ],
+      "description": "Domain category"
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "target_concept": {
+            "type": "string"
+          },
+          "relationship_type": {
+            "type": "string"
+          },
+          "strength": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "importance": {
+          "type": "number"
+        },
+        "frequency": {
+          "type": "number"
+        },
+        "last_accessed": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "auto_generated": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "concept",
+    "category"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "name": "UserSettings",
+  "type": "object",
+  "properties": {
+    "privacy_level": {
+      "type": "string",
+      "enum": [
+        "minimal",
+        "standard",
+        "enhanced",
+        "maximum"
+      ],
+      "default": "standard",
+      "description": "Overall privacy protection level"
+    },
+    "evolution_pacing": {
+      "type": "string",
+      "enum": [
+        "conservative",
+        "moderate",
+        "aggressive",
+        "experimental"
+      ],
+      "default": "moderate",
+      "description": "How quickly Kai should evolve"
+    },
+    "boundary_settings": {
+      "type": "object",
+      "properties": {
+        "financial_access": {
+          "type": "boolean",
+          "default": false
+        },
+        "social_media_posting": {
+          "type": "boolean",
+          "default": false
+        },
+        "smart_home_control": {
+          "type": "boolean",
+          "default": false
+        },
+        "autonomous_scheduling": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "data_retention": {
+      "type": "object",
+      "properties": {
+        "conversation_history_days": {
+          "type": "number",
+          "default": 365
+        },
+        "memory_auto_cleanup": {
+          "type": "boolean",
+          "default": false
+        },
+        "export_frequency": {
+          "type": "string",
+          "enum": [
+            "never",
+            "monthly",
+            "quarterly",
+            "yearly"
+          ],
+          "default": "never"
+        }
+      }
+    },
+    "integration_permissions": {
+      "type": "object",
+      "properties": {
+        "calendar": {
+          "type": "boolean",
+          "default": false
+        },
+        "email": {
+          "type": "boolean",
+          "default": false
+        },
+        "location": {
+          "type": "boolean",
+          "default": false
+        },
+        "health_data": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
+  },
+  "required": [],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
